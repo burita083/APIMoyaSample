@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import Moya
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let provider = MoyaProvider<AtCoderProblemsAPI>()
+        provider.request(.problems) { result in
+            switch result {
+            case let .success(response):
+                let jsonData = try? JSONDecoder().decode([AtCoderProblemsRepository].self, from: response.data)
+                print(jsonData!.prefix(5))
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
 
 
