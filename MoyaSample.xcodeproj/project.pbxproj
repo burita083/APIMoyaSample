@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DB4D8598EA420E61F24B57F /* Pods_MoyaSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2AA473BEB0DC7772D5D5A1 /* Pods_MoyaSampleTests.framework */; };
 		69ADD545849553560AA49086 /* Pods_MoyaSample_MoyaSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EE98FEE3D3B503D7601281 /* Pods_MoyaSample_MoyaSampleUITests.framework */; };
+		844A1D2C24FDF424002F0821 /* TestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844A1D2B24FDF424002F0821 /* TestViewController.storyboard */; };
+		844A1D2E24FDF4D7002F0821 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A1D2D24FDF4D7002F0821 /* TestViewController.swift */; };
 		84BE55E324F78AD600A3FFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE55E224F78AD600A3FFA1 /* AppDelegate.swift */; };
 		84BE55E524F78AD600A3FFA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE55E424F78AD600A3FFA1 /* SceneDelegate.swift */; };
 		84BE55E724F78AD600A3FFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE55E624F78AD600A3FFA1 /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		43A3F02AF97D394AB5AA97AD /* Pods-MoyaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaSample.debug.xcconfig"; path = "Target Support Files/Pods-MoyaSample/Pods-MoyaSample.debug.xcconfig"; sourceTree = "<group>"; };
 		5A2AA473BEB0DC7772D5D5A1 /* Pods_MoyaSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F8020A2D55930D43D66412 /* Pods-MoyaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaSample.release.xcconfig"; path = "Target Support Files/Pods-MoyaSample/Pods-MoyaSample.release.xcconfig"; sourceTree = "<group>"; };
+		844A1D2B24FDF424002F0821 /* TestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestViewController.storyboard; sourceTree = "<group>"; };
+		844A1D2D24FDF4D7002F0821 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		84BE55DF24F78AD600A3FFA1 /* MoyaSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE55E224F78AD600A3FFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BE55E424F78AD600A3FFA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				84BE55E224F78AD600A3FFA1 /* AppDelegate.swift */,
 				84BE55E424F78AD600A3FFA1 /* SceneDelegate.swift */,
 				84BE55E624F78AD600A3FFA1 /* ViewController.swift */,
+				844A1D2D24FDF4D7002F0821 /* TestViewController.swift */,
+				844A1D2B24FDF424002F0821 /* TestViewController.storyboard */,
 				84BE561224F78C2500A3FFA1 /* AtCoderProblemsAPI.swift */,
 				84BE561424F78D7200A3FFA1 /* AtCoderProblemsRepository.swift */,
 				84BE55E824F78AD600A3FFA1 /* Main.storyboard */,
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84BE55EF24F78AD800A3FFA1 /* LaunchScreen.storyboard in Resources */,
+				844A1D2C24FDF424002F0821 /* TestViewController.storyboard in Resources */,
 				84BE55EC24F78AD800A3FFA1 /* Assets.xcassets in Resources */,
 				84BE55EA24F78AD600A3FFA1 /* Main.storyboard in Resources */,
 			);
@@ -417,6 +424,7 @@
 				84BE55E724F78AD600A3FFA1 /* ViewController.swift in Sources */,
 				84BE55E324F78AD600A3FFA1 /* AppDelegate.swift in Sources */,
 				84BE561524F78D7200A3FFA1 /* AtCoderProblemsRepository.swift in Sources */,
+				844A1D2E24FDF4D7002F0821 /* TestViewController.swift in Sources */,
 				84BE55E524F78AD600A3FFA1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

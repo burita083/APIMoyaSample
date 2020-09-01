@@ -26,7 +26,10 @@ extension AtCoderProblemsAPI: TargetType {
     }
     
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .problems:
+            return .get
+        }
     }
     
     var sampleData: Data {
@@ -34,7 +37,10 @@ extension AtCoderProblemsAPI: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .problems:
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {
