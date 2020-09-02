@@ -14,13 +14,33 @@
                     <view key="view" contentMode="scaleToFill" id="8CC-Rz-BBs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fao-1W-Mop">
+                                <rect key="frame" x="184" y="374" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-fM-qO1">
+                                <rect key="frame" x="179.5" y="438" width="55" height="30"/>
+                                <state key="normal" title="Button2"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="k5U-fM-qO1" firstAttribute="centerX" secondItem="fao-1W-Mop" secondAttribute="centerX" id="F5i-JU-rPq"/>
+                            <constraint firstItem="k5U-fM-qO1" firstAttribute="top" secondItem="fao-1W-Mop" secondAttribute="bottom" constant="34" id="Tdb-nR-U3a"/>
+                            <constraint firstItem="k5U-fM-qO1" firstAttribute="centerY" secondItem="bV5-6X-o1W" secondAttribute="centerY" id="Tph-Tb-z7N"/>
+                            <constraint firstItem="fao-1W-Mop" firstAttribute="centerX" secondItem="bV5-6X-o1W" secondAttribute="centerX" id="q8O-7Q-xUa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bV5-6X-o1W"/>
                     </view>
+                    <connections>
+                        <outlet property="button2" destination="k5U-fM-qO1" id="t15-oo-vQM"/>
+                        <outlet property="dismissButton" destination="fao-1W-Mop" id="VTG-Dr-YJ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hh2-Jj-GbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="-11"/>
+            <point key="canvasLocation" x="118.84057971014494" y="-11.383928571428571"/>
         </scene>
     </scenes>
 </document>

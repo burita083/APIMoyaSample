@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Combine
+import Firebase
 
 class TestViewController: UIViewController {
 
+    @IBOutlet var dismissButton: UIButton!
+    @IBOutlet var button2: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.red

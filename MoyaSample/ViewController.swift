@@ -27,7 +27,9 @@ class ViewController: UIViewController, Alert {
         
         // test modalVC
         // property渡したい場合はこれだとだめ
-        self.present(TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController"), animated: true, completion: nil)
+        //self.present(TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController"), animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController"), animated: true)
     }
 }
 
