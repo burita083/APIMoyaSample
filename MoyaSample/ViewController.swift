@@ -8,12 +8,60 @@
 
 import UIKit
 import Moya
+import Parchment
+
 
 class ViewController: UIViewController, Alert {
 
+    @IBOutlet var testPushButton: UIButton!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        //navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let firstViewController = FirstViewController.instantiateFromStoryboard(withIdentifier: "FirstViewController")
+        firstViewController.title = "Test1"
+        let secondViewController = UIViewController()
+        secondViewController.title = "Test2"
+        secondViewController.view.backgroundColor = UIColor.yellow
         
+        let thirdViewController = UIViewController()
+        thirdViewController.title = "Test3"
+        thirdViewController.view.backgroundColor = UIColor.blue
+        
+        let fourthViewController = UIViewController()
+        fourthViewController.title = "Test4"
+        fourthViewController.view.backgroundColor = UIColor.green
+        
+        let fifthViewController = UIViewController()
+        fifthViewController.title = "Test5"
+        fifthViewController.view.backgroundColor = UIColor.purple
+        
+        let pagingViewController = PagingViewController(viewControllers: [
+          firstViewController,
+          secondViewController,
+          thirdViewController,
+          fourthViewController,
+          fifthViewController
+        ])
+        
+
+
+        addChild(pagingViewController)
+        view.addSubview(pagingViewController.view)
+        pagingViewController.didMove(toParent: self)
+        pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        NSLayoutConstraint.activate([
+          pagingViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+          pagingViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+          pagingViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+          pagingViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 64) // 動的に取りたいがTODO
+        ])
+
         let provider = MoyaProvider<AtCoderProblemsAPI>()
         provider.request(.problems) { result in
             switch result {
@@ -25,12 +73,127 @@ class ViewController: UIViewController, Alert {
             }
         }
         
+        print("aaaaaaaaaa")
+        let randomNumber = generateRandomNumber(maximum: -1)
+        switch randomNumber {
+        case .failure(let error):
+            switch error {
+            case .noAgeProvided:
+                print("noAge")
+            case .noEmailProvided:
+                print("email")
+            case .noLastNameProvided:
+                print("last")
+            }
+        case .success(let num):
+            print(num)
+        }
+
+
         // test modalVC
         // property渡したい場合はこれだとだめ
         //self.present(TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController"), animated: true, completion: nil)
         
+        //self.navigationController?.pushViewController(TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController"), animated: true)
+        print("CanThrow")
+        do {
+            let str = try canThrowErrors(num: 0)
+            print(str)
+        } catch NumError.minus {
+            print("minus")
+        } catch NumError.zero(let errorMessage) {
+            print(errorMessage)
+        } catch UserValidationError.noEmailProvided {
+            print("NoEmailProvided")
+        } catch {
+            print("Ohter")
+        }
+        
+        
+
+        do {
+            try error()
+        } catch FactorError.belowMinimum(let message) {
+            print(message)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    @IBAction func buttonTap(_ sender: Any) {
         self.navigationController?.pushViewController(TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController"), animated: true)
     }
+    
+    func error() throws {
+        throw FactorError.belowMinimum("0より小さいです")
+    }
+    
+
+   
+
+    func generateRandomNumber(maximum: Int) -> Result<Int, UserValidationError> {
+        if maximum < 0 {
+            //return .failure(.belowMinimum)
+            return .failure(.noLastNameProvided)
+        } else {
+            return .success(1)
+        }
+    }
+    
+    
+    
+    private func canThrowErrors(num: Int) throws -> String {
+        if num < 0 {
+            throw UserValidationError.noAgeProvided
+        }
+        
+        if num == 0 {
+            throw UserValidationError.noEmailProvided
+        }
+        return String(num)
+    }
+    
+}
+
+
+enum UserValidationError: Error {
+  case noLastNameProvided
+  case noAgeProvided
+  case noEmailProvided
+}
+
+extension UserValidationError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .noAgeProvided:
+            return "年齢書いて"
+        case .noEmailProvided:
+            return "メール書いて"
+        case .noLastNameProvided:
+            return "名前かいて"
+        }
+    }
+}
+
+enum NumError: Error {
+    case minus
+    case zero(String)
+}
+
+extension FactorError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .belowMinimum:
+            return "マイナスです"
+        case .isPrime:
+            return "OK"
+        }
+    }
+}
+
+enum FactorError: Error {
+    case belowMinimum(String)
+    case isPrime
 }
 
 

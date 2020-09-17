@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
                   // rootViewController
                let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
+               rootViewController.navigationItem.title = "aaaaaa"
 
                   // navigationController
                let navigationController = UINavigationController(rootViewController: rootViewController)

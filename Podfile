@@ -6,6 +6,7 @@ target 'MoyaSample' do
   use_frameworks!
   pod 'Moya', '~> 14.0'
   pod 'Firebase/Analytics'
+  pod 'Parchment'
 
   # Pods for MoyaSample
 

@@ -16,8 +16,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fao-1W-Mop">
-                                <rect key="frame" x="184" y="374" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="192" y="374" width="30" height="30"/>
+                                <state key="normal" title="aaa"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-fM-qO1">
                                 <rect key="frame" x="179.5" y="438" width="55" height="30"/>
