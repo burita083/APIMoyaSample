@@ -12,6 +12,9 @@ import Firebase
 
 class TestViewController: UIViewController {
 
+    @IBAction func dissmiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var dismissButton: UIButton!
     @IBOutlet var button2: UIButton!
     override func viewDidLoad() {

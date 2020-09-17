@@ -48,6 +48,31 @@ extension FirstViewController: UITableViewDataSource {
 extension FirstViewController: UITableViewDelegate {
     // セルタップ時の挙動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+         let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle: .actionSheet)
+
+         alert.addAction(UIAlertAction(title: "Approve", style: .default , handler:{ (UIAlertAction)in
+            let testVC = TestViewController.instantiateFromStoryboard(withIdentifier: "TestViewController")
+            testVC.modalPresentationStyle = .automatic
+            self.isModalInPresentation = false
+            testVC.isModalInPresentation = false
+            self.present(UINavigationController(rootViewController: testVC), animated: true, completion: nil)
+             print("User click Approve button")
+         }))
+
+         alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ (UIAlertAction)in
+             print("User click Edit button")
+         }))
+
+         alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
+             print("User click Delete button")
+         }))
+
+         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+             print("User click Dismiss button")
+         }))
+
+         self.present(alert, animated: true, completion: {
+             print("completion block")
+         })
     }
 }
